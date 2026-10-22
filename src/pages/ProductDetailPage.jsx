@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Button, Spin, Empty, message, Popconfirm } from "antd";
 import { getProduct, deleteProduct } from "../api/products";

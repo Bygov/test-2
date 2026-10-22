@@ -44,8 +44,6 @@ export default function ProductsPage() {
     queryFn: getCategories,
   });
 
-  // Загружаем большой список, чтобы фильтровать и сортировать
-  // товары не только на текущей странице.
   const {
     data: products = [],
     isPending,
@@ -82,7 +80,6 @@ export default function ProductsPage() {
     setParams({});
   }
 
-  // Фильтрация по цене
   const filteredProducts = products.filter((product) => {
     const min = priceMin === "" ? null : Number(priceMin);
     const max = priceMax === "" ? null : Number(priceMax);
@@ -98,7 +95,6 @@ export default function ProductsPage() {
     return true;
   });
 
-  // Сортировка
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sort === "price-asc") {
       return a.price - b.price;
@@ -115,7 +111,6 @@ export default function ProductsPage() {
     return a.id - b.id;
   });
 
-  // Пагинация после фильтрации и сортировки
   const start = (page - 1) * LIMIT;
   const visibleProducts = sortedProducts.slice(start, start + LIMIT);
   const totalPages = Math.ceil(sortedProducts.length / LIMIT);
