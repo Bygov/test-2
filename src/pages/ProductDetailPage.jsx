@@ -50,7 +50,7 @@ export default function ProductDetailPage() {
             В корзину
           </Button>{" "}
           <Button onClick={() => toggleFavorite(product)}>
-            {favorite ? "♥ Избранное" : "♡ В избранное"}
+            {favorite ? "В избранном" : "Добавить в избранное"}
           </Button>
 
           {isOwnProduct(product.id) && (
